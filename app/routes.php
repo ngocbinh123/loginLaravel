@@ -13,14 +13,22 @@
 
 Route::get('/', function()
 {
-	return View::make('hello');
+	return View::make('login');
 });
 
 /*Route::get('/blade',function(){
 	return View::make('index', array('name' => 'tung'));
 });*/
 
-Route::get('/blade', function()
+/*Route::get('/blade', function()
 {
 	return View::make('index',array('name'=>'tung'));
+});*/
+
+Route::get('/login',function(){
+	return View::make('login');
+});
+
+Route::get('/register',function(){
+	return View::make('register');
 });
