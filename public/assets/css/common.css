@@ -10,6 +10,8 @@
       margin: 0;
       color: white;
       font-weight: bold; }
+  .container .error {
+    color: red; }
 
 #login, #register {
   padding: 10px;

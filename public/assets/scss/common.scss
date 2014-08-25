@@ -13,6 +13,9 @@
 			font-weight: bold;
 		}
 	}
+	.error{
+		color:$color-error;
+	}
 }
 #login,#register{
 	padding: 10px;
