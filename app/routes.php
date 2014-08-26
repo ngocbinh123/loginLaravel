@@ -48,6 +48,7 @@ Route::get('/login',function(){
 });
 Route::post('/login',function(){
 	if(User::check_login(Input::get('user_input'),Input::get('password'))){
+		Session::put('logined','true');
 		return Redirect::to('editprofile');
 	}
 });
@@ -76,6 +77,17 @@ Route::post('/register',function(){
 	}
 });
 
-Route::get('/editprofile',function(){
+Route::get('/logout',function(){
+	Session::forget('logined');
+	return Redirect::to('login');
+});
+
+Route::get('/editprofile',array('before'=>'check-login',function(){
 	return View::make('editProfile');
+}));
+
+Route::filter('check-login',function(){
+	if(!Session::has('logined')){
+		return Redirect::to('login');
+	}	
 });
